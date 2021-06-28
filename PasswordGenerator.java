@@ -38,7 +38,7 @@ public class PasswordGenerator {
 
 		String PASSWORD = String.valueOf(password);
 
-		final Runtime run = Runtime.getRuntime();
+		Runtime run = Runtime.getRuntime();
 		Process p = null;
 
 		try {
@@ -51,6 +51,8 @@ public class PasswordGenerator {
 			Clipboard clipboard = toolkit.getSystemClipboard();
 			StringSelection strSel = new StringSelection(PASSWORD);
 			clipboard.setContents(strSel, null);
+
+			System.out.println(e);
 
 		}
 
