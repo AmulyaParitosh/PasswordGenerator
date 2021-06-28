@@ -1,4 +1,7 @@
 import java.util.Random;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 
 public class PasswordGenerator {
 
@@ -41,8 +44,14 @@ public class PasswordGenerator {
 		try {
 			p = run.exec(new String[] { "zsh", "-c", "echo " + PASSWORD + " | xclip -selection clipboard" });
 			p = run.exec(new String[] { "zsh", "-c", "echo " + PASSWORD + " | xclip -selection clipboard" });
+
 		} catch (Exception e) {
-			System.out.println(e);
+
+			Toolkit toolkit = Toolkit.getDefaultToolkit();
+			Clipboard clipboard = toolkit.getSystemClipboard();
+			StringSelection strSel = new StringSelection(PASSWORD);
+			clipboard.setContents(strSel, null);
+
 		}
 
 	}
