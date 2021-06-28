@@ -35,10 +35,11 @@ public class PasswordGenerator {
 
 		String PASSWORD = String.valueOf(password);
 
-		Runtime run = Runtime.getRuntime();
+		final Runtime run = Runtime.getRuntime();
 		Process p = null;
 
 		try {
+			p = run.exec(new String[] { "zsh", "-c", "echo " + PASSWORD + " | xclip -selection clipboard" });
 			p = run.exec(new String[] { "zsh", "-c", "echo " + PASSWORD + " | xclip -selection clipboard" });
 		} catch (Exception e) {
 			System.out.println(e);
