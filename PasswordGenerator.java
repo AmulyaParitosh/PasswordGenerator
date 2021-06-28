@@ -52,8 +52,6 @@ public class PasswordGenerator {
 			StringSelection strSel = new StringSelection(PASSWORD);
 			clipboard.setContents(strSel, null);
 
-			System.out.println(e);
-
 		}
 
 	}
